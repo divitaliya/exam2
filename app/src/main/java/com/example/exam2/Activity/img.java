@@ -1,5 +1,6 @@
 package com.example.exam2.Activity;
 
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -25,7 +26,9 @@ import java.util.Random;
 public class img extends AppCompatActivity {
     int pos;
     int[] img;
+    String[] name;
     ImageView imageView,next,prev,share,down;
+    ActionBar actionBar;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -39,6 +42,10 @@ public class img extends AppCompatActivity {
 
             pos = getIntent().getIntExtra("pos",0);
             img = getIntent().getIntArrayExtra("img");
+            name = getIntent().getStringArrayExtra("name");
+
+            actionBar = getSupportActionBar();
+            actionBar.setTitle(name[pos]);
 
             imageView.setImageResource(img[pos]);
 
@@ -66,6 +73,7 @@ public class img extends AppCompatActivity {
                 public void onClick(View v) {
                     if(pos>0) {
                         pos--;
+                        actionBar.setTitle(name[pos]);
                         imageView.setImageResource(img[pos]);
                     }
                 }
@@ -75,6 +83,7 @@ public class img extends AppCompatActivity {
                 public void onClick(View v) {
                     if(pos< config.art_img.length-1) {
                         pos++;
+                        actionBar.setTitle(name[pos]);
                         imageView.setImageResource(img[pos]);
                     }
                 }
@@ -114,5 +123,4 @@ public class img extends AppCompatActivity {
         view.draw(canvas);
         return returnedBitmap;
     }
-
-    }
+}

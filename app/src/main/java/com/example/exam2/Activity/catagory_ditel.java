@@ -18,6 +18,7 @@ public class catagory_ditel extends AppCompatActivity {
     GridView gridView;
     int pos;
     int[] img;
+    String[] name;
     ActionBar actionBar;
 
     @Override
@@ -34,22 +35,28 @@ public class catagory_ditel extends AppCompatActivity {
         if(pos==0)
         {
             img = config.art_img;
+            name = config.art_name;
         }
         if(pos==1)
         {
             img = config.citycapes_img;
+            name = config.citycapes_name;
         }if(pos==2)
         {
             img = config.earth_img;
+            name = config.earth_name;
         }if(pos==3)
         {
             img = config.lanscape_img;
+            name = config.lanscape_name;
         }if(pos==4)
         {
             img = config.life_img;
+            name = config.life_name;
         }if(pos==5)
         {
             img = config.seascape_img;
+            name = config.seascape_name;
         }
 
         catagory_ditel_adapter catagory_ditel_adapter = new catagory_ditel_adapter(this,img);
@@ -61,6 +68,7 @@ public class catagory_ditel extends AppCompatActivity {
                 Intent intent = new Intent(catagory_ditel.this,img.class);
                 intent.putExtra("pos",position);
                 intent.putExtra("img",img);
+                intent.putExtra("name",name);
                 startActivity(intent);
             }
         });
