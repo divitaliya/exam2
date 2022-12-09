@@ -110,7 +110,6 @@ public class img extends AppCompatActivity {
                     startActivity(Intent.createChooser(share, "Share Image"));
                 }
             });
-
         }
     public static Bitmap getBitmapFromView(View view) {
         Bitmap returnedBitmap = Bitmap.createBitmap(view.getWidth(), view.getHeight(), Bitmap.Config.ARGB_8888);
